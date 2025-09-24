@@ -1,0 +1,98 @@
+// This is your Prisma schema file for SQLite (easier setup)
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model TeamMember {
+  id          String   @id @default(cuid())
+  name        String
+  title       String
+  bio         String
+  expertise   String   // JSON string for simplicity
+  experience  Int
+  languages   String   // JSON string for simplicity
+  linkedin    String?
+  email       String?
+  image       String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("team_members")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  client      String
+  description String
+  challenge   String
+  solution    String
+  results     String
+  category    String
+  region      String
+  duration    String
+  budget      String?
+  image       String?
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("projects")
+}
+
+model Publication {
+  id          String   @id @default(cuid())
+  title       String
+  type        String // report, article, whitepaper, blog
+  description String
+  url         String?
+  pdfUrl      String?
+  authors     String   // JSON string for simplicity
+  publishedAt DateTime
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("publications")
+}
+
+model Client {
+  id          String   @id @default(cuid())
+  name        String
+  logo        String?
+  website     String?
+  description String?
+  sector      String?
+  region      String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("clients")
+}
+
+model Contact {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  organization String?
+  service     String?
+  message     String
+  phone       String?
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("contacts")
+}
+
+
+
