@@ -224,7 +224,7 @@ async function main() {
         description: 'Flagship report examining the impact of workplace childcare on gender equality and women\'s economic participation.',
         url: 'https://www.ifc.org/gender-childcare-report',
         pdfUrl: '/publications/gender-childcare-report.pdf',
-        authors: JSON.stringify(['Nhung Nguyen', 'Dr. Sarah Johnson']),
+        authors: ['Nhung Nguyen', 'Dr. Sarah Johnson'],
         publishedAt: new Date('2023-06-15'),
         isPublished: true
       }
@@ -236,7 +236,7 @@ async function main() {
         description: 'Peer-reviewed journal article analyzing gender disparities in SME financing and recommendations for improvement.',
         url: 'https://doi.org/10.1016/j.worlddev.2023.106123',
         pdfUrl: '/publications/sme-financing-vietnam.pdf',
-        authors: JSON.stringify(['Nhung Nguyen']),
+        authors: ['Nhung Nguyen'],
         publishedAt: new Date('2023-03-20'),
         isPublished: true
       }
@@ -248,7 +248,7 @@ async function main() {
         description: 'Comprehensive guide to best practices in monitoring and evaluation for development programs.',
         url: '/publications/best-practices-evaluation',
         pdfUrl: '/publications/best-practices-evaluation.pdf',
-        authors: JSON.stringify(['Nhung Nguyen', 'Michael Rodriguez', 'Dr. Amina Hassan']),
+        authors: ['Nhung Nguyen', 'Michael Rodriguez', 'Dr. Amina Hassan'],
         publishedAt: new Date('2023-09-10'),
         isPublished: true
       }
@@ -260,7 +260,7 @@ async function main() {
         description: 'Technical report on methodological approaches for tracking progress towards Sustainable Development Goals.',
         url: '/publications/sdg-tracking-methods',
         pdfUrl: '/publications/sdg-tracking-methods.pdf',
-        authors: JSON.stringify(['Dr. Amina Hassan', 'Nhung Nguyen']),
+        authors: ['Dr. Amina Hassan', 'Nhung Nguyen'],
         publishedAt: new Date('2023-11-05'),
         isPublished: true
       }
@@ -271,7 +271,7 @@ async function main() {
         type: 'blog',
         description: 'Blog post discussing practical approaches to gender mainstreaming in development projects.',
         url: '/blog/gender-mainstreaming-development',
-        authors: JSON.stringify(['Dr. Sarah Johnson']),
+        authors: ['Dr. Sarah Johnson'],
         publishedAt: new Date('2023-12-01'),
         isPublished: true
       }
