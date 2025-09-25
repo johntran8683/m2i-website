@@ -72,11 +72,7 @@
       "dest": "/404"
     }
   ],
-  "functions": {
-    "app/**/*.tsx": {
-      "maxDuration": 30
-    }
-  },
+
   "headers": [
     {
       "source": "/(.*)",
