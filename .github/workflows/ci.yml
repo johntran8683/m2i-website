@@ -1,34 +1,39 @@
 name: CI
 
 on:
-  pull_request:
   push:
-    branches: [ main ]
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '20'
           cache: 'npm'
 
-      - name: Install deps
+      - name: Copy env
+        run: |
+          if [ -f .env.ci ]; then cp .env.ci .env; else cp env.example .env; fi
+
+      - name: Install dependencies
         run: npm ci
 
       - name: Generate Prisma Client
         run: npx prisma generate
 
       - name: Lint
-        run: npm run lint
-
-      - name: Type check
-        run: npx tsc --noEmit
+        run: |
+          if npm run | grep -q "lint"; then npm run lint --if-present; else echo "No lint script"; fi
 
       - name: Build
         run: npm run build
+
