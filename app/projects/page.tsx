@@ -21,7 +21,7 @@ const projects = [
     sector: 'Health',
     region: 'Sub-Saharan Africa',
     kpi: '12 regions, 8 KPIs',
-    image: 'https://images.unsplash.com/photo-1532634896-26909d0d4b6a?q=80&auto=format&fit=crop&w=1600&h=1000',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&auto=format&fit=crop&w=1600&h=1000',
   },
 ]
 

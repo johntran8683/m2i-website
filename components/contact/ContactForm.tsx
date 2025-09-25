@@ -5,7 +5,8 @@ import {
   EnvelopeIcon,
   PhoneIcon,
   BuildingOfficeIcon,
-  DocumentTextIcon
+  DocumentTextIcon,
+  CheckCircleIcon
 } from '@heroicons/react/24/outline'
 
 const serviceOptions = [
@@ -19,15 +20,6 @@ const serviceOptions = [
   'Other (please specify)'
 ]
 
-const projectTypes = [
-  'New Project (0-6 months)',
-  'Ongoing Project (6+ months)',
-  'Evaluation Study',
-  'Training Program',
-  'Consultation Only',
-  'Not Sure Yet'
-]
-
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -35,9 +27,6 @@ export default function ContactForm() {
     organization: '',
     phone: '',
     service: '',
-    projectType: '',
-    budget: '',
-    timeline: '',
     message: ''
   })
 
@@ -64,17 +53,15 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="section-padding bg-gray-50">
-        <div className="container-max">
+      <div className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mx-auto mb-6">
-                <svg className="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+            <div className="card-elevated p-12">
+              <div className="flex items-center justify-center h-20 w-20 rounded-full bg-green-100 mx-auto mb-8">
+                <CheckCircleIcon className="h-10 w-10 text-green-600" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h2>
-              <p className="text-gray-600 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Thank You!</h2>
+              <p className="text-lg text-gray-600 mb-8">
                 We've received your message and will get back to you within 24 hours. 
                 In the meantime, feel free to explore our services and case studies.
               </p>
@@ -97,24 +84,24 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="section-padding bg-gray-50">
-      <div className="container-max">
+    <div className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Send Us a Message
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              Get Your Free Consultation
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Tell us about your project and we'll provide a customized proposal
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Tell us about your project and we'll provide a customized proposal within 24 hours
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-sm">
+          <div className="card-elevated p-8 lg:p-12">
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Personal Information */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
-                  <EnvelopeIcon className="h-5 w-5 mr-2 text-primary-600" />
+                  <EnvelopeIcon className="h-5 w-5 mr-3 text-primary-600" />
                   Contact Information
                 </h3>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -129,7 +116,7 @@ export default function ContactForm() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                       placeholder="Your full name"
                     />
                   </div>
@@ -144,7 +131,7 @@ export default function ContactForm() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                       placeholder="your.email@organization.com"
                     />
                   </div>
@@ -159,7 +146,7 @@ export default function ContactForm() {
                       required
                       value={formData.organization}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                       placeholder="Your organization name"
                     />
                   </div>
@@ -173,20 +160,20 @@ export default function ContactForm() {
                       id="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                      placeholder="+1 (555) 123-4567"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+                      placeholder="+1 (555) 012-3456"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Project Information */}
+              {/* Service Selection */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
-                  <DocumentTextIcon className="h-5 w-5 mr-2 text-primary-600" />
+                  <DocumentTextIcon className="h-5 w-5 mr-3 text-primary-600" />
                   Project Details
                 </h3>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6">
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
                       Service Needed *
@@ -197,68 +184,12 @@ export default function ContactForm() {
                       required
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                     >
                       <option value="">Select a service</option>
                       {serviceOptions.map((option) => (
                         <option key={option} value={option}>{option}</option>
                       ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
-                      Project Type
-                    </label>
-                    <select
-                      name="projectType"
-                      id="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                    >
-                      <option value="">Select project type</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>{type}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                      Budget Range
-                    </label>
-                    <select
-                      name="budget"
-                      id="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="under-10k">Under $10,000</option>
-                      <option value="10k-50k">$10,000 - $50,000</option>
-                      <option value="50k-100k">$50,000 - $100,000</option>
-                      <option value="100k-500k">$100,000 - $500,000</option>
-                      <option value="over-500k">Over $500,000</option>
-                      <option value="discuss">Prefer to discuss</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
-                      Timeline
-                    </label>
-                    <select
-                      name="timeline"
-                      id="timeline"
-                      value={formData.timeline}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                    >
-                      <option value="">Select timeline</option>
-                      <option value="asap">ASAP (Rush project)</option>
-                      <option value="1-3-months">1-3 months</option>
-                      <option value="3-6-months">3-6 months</option>
-                      <option value="6-12-months">6-12 months</option>
-                      <option value="flexible">Flexible</option>
                     </select>
                   </div>
                 </div>
@@ -276,7 +207,7 @@ export default function ContactForm() {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                   placeholder="Please describe your project, objectives, and any specific requirements..."
                 />
               </div>
@@ -288,7 +219,7 @@ export default function ContactForm() {
                   disabled={isSubmitting}
                   className="btn-primary min-w-[200px] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Sending...' : 'Get Free Consultation'}
                 </button>
                 <p className="mt-4 text-sm text-gray-500">
                   We'll respond within 24 hours with a customized proposal

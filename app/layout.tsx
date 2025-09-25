@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://metrics2impact.com'),
   title: 'Metrics2Impact - Global M&E Excellence',
   description: 'Where Insight Powers Missions. Metrics2Impact specializes in monitoring, evaluation, and gender equality for development organizations worldwide.',
   keywords: 'monitoring evaluation, M&E, gender equality, development consulting, impact assessment',

@@ -46,7 +46,7 @@ const faqs = [
   }
 ]
 
-export default function FAQ() {
+export default function ContactFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {
@@ -54,13 +54,13 @@ export default function FAQ() {
   }
 
   return (
-    <div className="section-padding bg-gray-50">
-      <div className="container-max">
+    <div className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Common questions about our services, process, and working with us
           </p>
         </div>
@@ -68,12 +68,14 @@ export default function FAQ() {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm">
+              <div key={index} className="card">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 rounded-xl"
                 >
-                  <span className="font-semibold text-gray-900 pr-4">{faq.question}</span>
+                  <span className="font-semibold text-gray-900 pr-4 text-sm sm:text-base">
+                    {faq.question}
+                  </span>
                   {openIndex === index ? (
                     <ChevronUpIcon className="h-5 w-5 text-primary-600 flex-shrink-0" />
                   ) : (
@@ -82,7 +84,9 @@ export default function FAQ() {
                 </button>
                 {openIndex === index && (
                   <div className="px-6 pb-4">
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                      {faq.answer}
+                    </p>
                   </div>
                 )}
               </div>
@@ -92,11 +96,11 @@ export default function FAQ() {
 
         {/* Still Have Questions */}
         <div className="mt-16 text-center">
-          <div className="bg-white p-8 rounded-xl shadow-sm max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-primary-50 p-6 sm:p-8 rounded-xl max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
               Still Have Questions?
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 text-sm sm:text-base">
               Can't find the answer you're looking for? Our team is here to help. 
               Contact us for personalized assistance with your specific needs.
             </p>
@@ -104,7 +108,7 @@ export default function FAQ() {
               <a href="/contact" className="btn-primary">
                 Contact Us
               </a>
-              <a href="mailto:info@impactinsights.com" className="btn-secondary">
+              <a href="mailto:info@metrics2impact.com" className="btn-secondary">
                 Send Email
               </a>
             </div>

@@ -3,7 +3,8 @@ import {
   PhoneIcon,
   GlobeAltIcon,
   ClockIcon,
-  MapPinIcon
+  MapPinIcon,
+  CheckCircleIcon
 } from '@heroicons/react/24/outline'
 
 const contactDetails = [
@@ -11,67 +12,67 @@ const contactDetails = [
     icon: EnvelopeIcon,
     title: 'Email',
     details: [
-      'General inquiries: info@impactinsights.com',
-      'Project proposals: projects@impactinsights.com',
-      'Media & partnerships: media@impactinsights.com'
-    ]
+      'General inquiries: info@metrics2impact.com',
+      'Project proposals: projects@metrics2impact.com'
+    ],
+    primary: true
   },
   {
     icon: PhoneIcon,
     title: 'Phone',
     details: [
-      'US: +1 (555) 123-4567',
-      'International: +1 (555) 123-4568',
-      'WhatsApp: +1 (555) 123-4569'
-    ]
+      'US: +1 (555) 012-3456',
+      'WhatsApp: +1 (555) 012-3457'
+    ],
+    primary: false
   },
   {
     icon: GlobeAltIcon,
-    title: 'Global Presence',
+    title: 'Global Reach',
     details: [
       'Virtual office with global reach',
-      'Regional consultants in 15+ countries',
-      'Available across all time zones'
-    ]
+      'Regional consultants in 15+ countries'
+    ],
+    primary: false
   },
   {
     icon: ClockIcon,
-    title: 'Business Hours',
+    title: 'Response Time',
     details: [
-      'Monday - Friday: 9:00 AM - 6:00 PM EST',
-      'Emergency support: 24/7',
-      'Response time: Within 24 hours'
-    ]
+      'Standard: Within 24 hours',
+      'Urgent: Same day response'
+    ],
+    primary: false
   }
 ]
 
 const regionalOffices = [
   {
     region: 'Asia-Pacific',
-    countries: ['Vietnam', 'Thailand', 'Philippines', 'Indonesia', 'Australia'],
-    contact: 'apac@impactinsights.com'
+    countries: ['Vietnam', 'Thailand', 'Philippines', 'Indonesia'],
+    contact: 'apac@metrics2impact.com'
   },
   {
     region: 'Latin America',
-    countries: ['Mexico', 'Brazil', 'Argentina', 'Colombia', 'Peru'],
-    contact: 'latinamerica@impactinsights.com'
+    countries: ['Mexico', 'Brazil', 'Argentina', 'Colombia'],
+    contact: 'latinamerica@metrics2impact.com'
   },
   {
     region: 'Africa',
-    countries: ['Kenya', 'Nigeria', 'South Africa', 'Ghana', 'Tanzania'],
-    contact: 'africa@impactinsights.com'
+    countries: ['Kenya', 'Nigeria', 'South Africa', 'Ghana'],
+    contact: 'africa@metrics2impact.com'
   }
 ]
 
 export default function ContactInfo() {
   return (
-    <div className="section-padding bg-white">
-      <div className="container-max">
+    <div className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
             Contact Information
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Multiple ways to reach us and connect with our global team
           </p>
         </div>
@@ -79,11 +80,21 @@ export default function ContactInfo() {
         {/* Contact Details */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-16">
           {contactDetails.map((contact, index) => (
-            <div key={index} className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-primary-100 mx-auto mb-4">
-                <contact.icon className="h-6 w-6 text-primary-600" aria-hidden="true" />
+            <div key={index} className={`text-center p-6 rounded-xl transition-all duration-300 hover:scale-105 ${
+              contact.primary ? 'card-elevated' : 'card'
+            }`}>
+              <div className={`flex items-center justify-center h-12 w-12 rounded-lg mx-auto mb-4 ${
+                contact.primary ? 'bg-primary-100' : 'bg-gray-100'
+              }`}>
+                <contact.icon className={`h-6 w-6 ${
+                  contact.primary ? 'text-primary-600' : 'text-gray-600'
+                }`} aria-hidden="true" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">{contact.title}</h3>
+              <h3 className={`text-lg font-semibold mb-4 ${
+                contact.primary ? 'text-gray-900' : 'text-gray-900'
+              }`}>
+                {contact.title}
+              </h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 {contact.details.map((detail, detailIndex) => (
                   <li key={detailIndex}>{detail}</li>
@@ -101,7 +112,7 @@ export default function ContactInfo() {
           
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {regionalOffices.map((office, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-xl">
+              <div key={index} className="card p-6">
                 <div className="flex items-center mb-4">
                   <MapPinIcon className="h-6 w-6 text-primary-600 mr-3" />
                   <h4 className="text-xl font-semibold text-gray-900">{office.region}</h4>
@@ -111,7 +122,7 @@ export default function ContactInfo() {
                   <h5 className="font-semibold text-gray-900 mb-2">Countries Covered:</h5>
                   <div className="flex flex-wrap gap-2">
                     {office.countries.map((country, countryIndex) => (
-                      <span key={countryIndex} className="text-sm bg-white text-gray-700 px-3 py-1 rounded-full">
+                      <span key={countryIndex} className="text-sm bg-primary-100 text-primary-800 px-3 py-1 rounded-full">
                         {country}
                       </span>
                     ))}
@@ -127,31 +138,36 @@ export default function ContactInfo() {
         </div>
 
         {/* Emergency Contact */}
-        <div className="bg-gradient-to-r from-primary-50 to-accent-50 p-8 rounded-xl text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-8 rounded-2xl text-center text-white">
+          <h3 className="text-2xl font-bold mb-4">
             Need Immediate Assistance?
           </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-primary-100 mb-8 max-w-2xl mx-auto">
             For urgent project needs or emergency consultations, we offer same-day response 
             and expedited project delivery with our rush service options.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary-600 mb-1">Same Day</div>
-              <div className="text-sm text-gray-600">Emergency Response</div>
+              <div className="text-2xl font-bold text-white mb-1">Same Day</div>
+              <div className="text-sm text-primary-100">Emergency Response</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary-600 mb-1">+50%</div>
-              <div className="text-sm text-gray-600">Rush Project Fee</div>
+              <div className="text-2xl font-bold text-white mb-1">+50%</div>
+              <div className="text-sm text-primary-100">Rush Project Fee</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary-600 mb-1">24/7</div>
-              <div className="text-sm text-gray-600">Emergency Hotline</div>
+              <div className="text-2xl font-bold text-white mb-1">24/7</div>
+              <div className="text-sm text-primary-100">Emergency Hotline</div>
             </div>
           </div>
-          <div className="mt-6">
-            <a href="tel:+15551234567" className="btn-primary">
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:+15550123456" className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
               Call Emergency Line
+            </a>
+            <a href="mailto:emergency@metrics2impact.com" className="text-white hover:text-primary-100 font-medium py-3 px-6 rounded-lg border border-white/30 hover:border-white/50 transition-colors duration-200">
+              Send Urgent Email
             </a>
           </div>
         </div>

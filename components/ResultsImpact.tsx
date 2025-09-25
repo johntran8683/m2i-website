@@ -54,7 +54,7 @@ export default function ResultsImpact() {
       title: "Health Access Survey & Impact",
       client: "UNICEF",
       result: "25% reduction in maternal mortality",
-      image: "https://images.unsplash.com/photo-1532634896-26909d0d4b6a?q=80&auto=format&fit=crop&w=400&h=300"
+      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&auto=format&fit=crop&w=400&h=300"
     }
   ]
 
