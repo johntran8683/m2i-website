@@ -2,23 +2,22 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 import Logo from './Logo'
 
 const navigation = [
-  { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
-  { name: 'Team', href: '/team' },
-  { name: 'Projects', href: '/projects' },
   { name: 'About', href: '/about' },
+  { name: 'Team', href: '/team' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 sticky top-0 z-40 border-b border-gray-100">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/50 shadow-sm">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Metrics2Impact</span>
@@ -45,18 +44,26 @@ export default function Header() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary-600 hover:after:w-full after:transition-all"
+              className="text-sm font-medium leading-6 text-gray-700 hover:text-primary-600 transition-colors duration-200 relative group"
             >
               {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-200 group-hover:w-full"></span>
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end" />
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <Link
+            href="/contact"
+            className="bg-primary-600 text-white hover:bg-primary-700 font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+          >
+            Get Free Consultation
+          </Link>
+        </div>
       </nav>
       {/* Mobile menu */}
       {mobileMenuOpen && (
@@ -101,7 +108,15 @@ export default function Header() {
                     </Link>
                   ))}
                 </div>
-                <div className="py-6" />
+                <div className="py-6">
+                  <Link
+                    href="/contact"
+                    className="block w-full bg-primary-600 text-white hover:bg-primary-700 font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-center shadow-lg"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Get Free Consultation
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

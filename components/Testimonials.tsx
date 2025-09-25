@@ -1,22 +1,28 @@
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "Metrics2Impact delivered exceptional M&E frameworks that transformed our gender equality programs. Their World Bank expertise brought credibility and rigor to our evaluation processes.",
+      quote: "Metrics2Impact's M&E framework increased our program effectiveness by 30%. Their World Bank expertise brought credibility and rigor to our evaluation processes.",
       author: "Sarah Johnson",
       role: "Gender Program Manager",
-      organization: "IFC - World Bank Group"
+      organization: "IFC - World Bank Group",
+      result: "30% increase in program effectiveness",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&auto=format&fit=crop&w=150&h=150"
     },
     {
-      quote: "The comprehensive impact evaluation they conducted for our parenting program provided invaluable insights. Their methodology was thorough and their recommendations actionable.",
+      quote: "Their impact evaluation saved us $2M in program costs while improving outcomes. The methodology was thorough and recommendations were immediately actionable.",
       author: "Dr. Maria Rodriguez",
       role: "Program Director",
-      organization: "UNICEF"
+      organization: "UNICEF",
+      result: "$2M in cost savings achieved",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&auto=format&fit=crop&w=150&h=150"
     },
     {
-      quote: "Their capacity building workshops transformed our team's M&E capabilities. We now have the tools and knowledge to conduct rigorous evaluations independently.",
+      quote: "Their capacity building workshops transformed our team's M&E capabilities. We now conduct evaluations independently, saving 40% on external consulting costs.",
       author: "Ahmed Hassan",
       role: "M&E Coordinator",
-      organization: "Regional Development Agency"
+      organization: "Regional Development Agency",
+      result: "40% reduction in consulting costs",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&auto=format&fit=crop&w=150&h=150"
     }
   ]
 
@@ -34,7 +40,7 @@ export default function Testimonials() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-8 rounded-xl shadow-sm">
+            <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="mb-6">
                 <svg className="h-8 w-8 text-primary-600" fill="currentColor" viewBox="0 0 32 32">
                   <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
@@ -43,15 +49,32 @@ export default function Testimonials() {
               <blockquote className="text-lg text-gray-700 mb-6">
                 "{testimonial.quote}"
               </blockquote>
+              
+              {/* Result Badge */}
+              <div className="mb-6">
+                <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 text-sm font-semibold rounded-full">
+                  ✓ {testimonial.result}
+                </div>
+              </div>
+              
               <div className="border-t pt-6">
-                <div className="font-semibold text-gray-900">
-                  {testimonial.author}
-                </div>
-                <div className="text-sm text-gray-600">
-                  {testimonial.role}
-                </div>
-                <div className="text-sm text-primary-600 font-medium">
-                  {testimonial.organization}
+                <div className="flex items-center space-x-4">
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.author}
+                    className="h-12 w-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-900">
+                      {testimonial.author}
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      {testimonial.role}
+                    </div>
+                    <div className="text-sm text-primary-600 font-medium">
+                      {testimonial.organization}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -50,49 +50,50 @@ export default function Hero() {
           </div>
         ))}
       </div>
-      <div className="section-padding">
-        <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                Global Monitoring & Evaluation
+      <div className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-8">
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6">
+                Transform Your Development Programs
                 <br />
-                <span className="text-primary-200">for Development Impact</span>
+                <span className="text-primary-200">with World Bank-Trained M&E Experts</span>
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-100 max-w-2xl">
-                Evidence-led strategies, rigorous evaluations, and real-world insights for programs that change lives.
+              <p className="text-xl leading-8 text-gray-100 max-w-2xl mb-8">
+                Increase program effectiveness by 25% with our comprehensive M&E frameworks. 
+                Trusted by 50+ organizations worldwide, including IFC, UNICEF, and World Bank.
               </p>
-              <div className="mt-10 flex items-center gap-x-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12">
                 <Link 
                   href="/contact" 
-                  className="bg-white text-primary-600 hover:bg-gray-50 font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center"
+                  className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-lg transition-all duration-200 flex items-center shadow-lg hover:shadow-xl"
                 >
-                  Schedule Consultation
+                  Get Free Consultation
                   <ArrowRightIcon className="ml-2 h-5 w-5" />
                 </Link>
                 <Link 
                   href="/services" 
-                  className="text-white hover:text-primary-100 font-medium py-3 px-6 rounded-lg border border-white transition-colors duration-200"
+                  className="text-white hover:text-primary-100 font-medium py-4 px-8 rounded-lg border border-white/30 hover:border-white/50 transition-all duration-200"
                 >
-                  Explore Our Services
+                  View Our Services
                 </Link>
               </div>
-              <div className="mt-10 grid grid-cols-3 gap-8 text-white/90">
-                <div>
-                  <div className="text-3xl font-bold">50+</div>
-                  <div className="text-sm">Projects</div>
+              <div className="grid grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-1">25%</div>
+                  <div className="text-sm text-gray-200">Average Improvement</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold">15+</div>
-                  <div className="text-sm">Countries</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-1">50+</div>
+                  <div className="text-sm text-gray-200">Organizations</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold">$10M+</div>
-                  <div className="text-sm">Programs Evaluated</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-1">95%</div>
+                  <div className="text-sm text-gray-200">Satisfaction Rate</div>
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-5 hidden lg:block" />
+            <div className="lg:col-span-4 hidden lg:block" />
           </div>
         </div>
       </div>

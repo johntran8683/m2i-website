@@ -1,21 +1,19 @@
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
-import ProjectsHighlights from '@/components/ProjectsHighlights'
-import ImpactNumbers from '@/components/ImpactNumbers'
-import ClientLogos from '@/components/ClientLogos'
-import Testimonials from '@/components/Testimonials'
-import CTA from '@/components/CTA'
+import ResultsImpact from '@/components/ResultsImpact'
+import SocialProof from '@/components/SocialProof'
+import FAQ from '@/components/FAQ'
+import FinalCTA from '@/components/FinalCTA'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <ImpactNumbers />
       <Services />
-      <ProjectsHighlights />
-      <ClientLogos />
-      <Testimonials />
-      <CTA />
+      <ResultsImpact />
+      <SocialProof />
+      <FAQ />
+      <FinalCTA />
     </>
   )
 }

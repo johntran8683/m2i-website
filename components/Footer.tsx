@@ -107,13 +107,23 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold leading-6 text-white">Contact</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   <li>
+                    <a href="tel:+1-555-0123" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors">
+                      +1 (555) 012-3456
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:info@metrics2impact.com" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors">
+                      info@metrics2impact.com
+                    </a>
+                  </li>
+                  <li>
                     <span className="text-sm leading-6 text-gray-300">
-                      Global Virtual Office
+                      Response within 24 hours
                     </span>
                   </li>
                   <li>
                     <span className="text-sm leading-6 text-gray-300">
-                      Available Worldwide
+                      Free consultation available
                     </span>
                   </li>
                 </ul>

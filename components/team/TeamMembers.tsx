@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { 
   AcademicCapIcon,
   GlobeAltIcon,
   LanguageIcon,
   TrophyIcon,
-  EnvelopeIcon
+  EnvelopeIcon,
+  StarIcon
 } from '@heroicons/react/24/outline'
 
 const teamMembers = [
@@ -24,7 +26,7 @@ const teamMembers = [
     education: 'MA Economics (First Class Honours) - Lincoln University, New Zealand',
     linkedin: '#',
     email: 'nhung@impactinsights.com',
-    image: '/images/nhung-nguyen.jpg',
+    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&auto=format&fit=crop&w=300&h=300',
     region: 'Global'
   },
   {
@@ -42,7 +44,7 @@ const teamMembers = [
     education: 'PhD Gender Studies - University of Melbourne',
     linkedin: '#',
     email: 'sarah@impactinsights.com',
-    image: '/images/sarah-johnson.jpg',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&auto=format&fit=crop&w=300&h=300',
     region: 'Asia-Pacific'
   },
   {
@@ -60,7 +62,7 @@ const teamMembers = [
     education: 'MS Statistics - Universidad de Buenos Aires',
     linkedin: '#',
     email: 'michael@impactinsights.com',
-    image: '/images/michael-rodriguez.jpg',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&auto=format&fit=crop&w=300&h=300',
     region: 'Latin America'
   },
   {
@@ -78,7 +80,7 @@ const teamMembers = [
     education: 'PhD Economics - London School of Economics',
     linkedin: '#',
     email: 'amina@impactinsights.com',
-    image: '/images/amina-hassan.jpg',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&auto=format&fit=crop&w=300&h=300',
     region: 'Africa'
   }
 ]
@@ -88,21 +90,32 @@ export default function TeamMembers() {
     <div className="section-padding bg-gray-50">
       <div className="container-max">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Core Team Members
+          <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-6">
+            <StarIcon className="w-4 h-4 mr-2" />
+            World Bank-Trained Experts
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+            Meet Our Expert Team
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Meet our senior consultants who bring world-class expertise to every project
+          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+            Our senior consultants bring 30+ years of combined experience from World Bank, 
+            IFC, UNICEF, and leading development organizations worldwide.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {teamMembers.map((member, index) => (
-            <div key={index} className="bg-white p-8 rounded-xl shadow-sm">
+            <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex flex-col lg:flex-row gap-6">
                 <div className="lg:w-1/3">
-                  <div className="aspect-square bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Photo</span>
+                  <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
                   </div>
                   <div className="text-center lg:text-left">
                     <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
@@ -111,7 +124,7 @@ export default function TeamMembers() {
                       <GlobeAltIcon className="h-4 w-4 mr-1" />
                       {member.region}
                     </div>
-                    <div className="text-sm text-gray-500">{member.experience}</div>
+                    <div className="text-sm text-gray-500 font-medium">{member.experience}</div>
                   </div>
                 </div>
                 
