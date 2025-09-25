@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import ServicesOverview from '@/components/services/ServicesOverview'
 import ServiceDetails from '@/components/services/ServiceDetails'
 import Process from '@/components/services/Process'
-// import Pricing from '@/components/services/Pricing'
+import Pricing from '@/components/services/Pricing'
 
 export const metadata: Metadata = {
   title: 'Services - Metrics2Impact',
@@ -15,6 +15,7 @@ export default function ServicesPage() {
       <ServicesOverview />
       <ServiceDetails />
       <Process />
+      <Pricing />
     </>
   )
 }

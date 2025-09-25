@@ -114,21 +114,29 @@ const serviceDetails = [
 
 export default function ServiceDetails() {
   return (
-    <div className="section-padding bg-gray-50">
+    <div className="section-padding bg-gradient-to-br from-gray-50 to-white">
       <div className="container-max">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Service Details
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium mb-6">
+            <span className="w-2 h-2 bg-gray-500 rounded-full mr-2"></span>
+            Detailed Service Information
+          </div>
+          <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+            Deep Dive Into Our
+            <br />
+            <span className="text-primary-600">Expertise</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Detailed information about our approach, deliverables, and methodology for each service area
+          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive methodology, deliverables, and timelines for each service area. 
+            Understand exactly how we deliver world-class M&E solutions.
           </p>
         </div>
 
-        <div className="space-y-16">
-          {serviceDetails.map((service) => (
-            <div key={service.id} id={service.id} className="bg-white rounded-xl shadow-sm overflow-hidden">
-              <div className="relative h-48 w-full">
+        <div className="space-y-20">
+          {serviceDetails.map((service, index) => (
+            <div key={service.id} id={service.id} className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+              {/* Header Section */}
+              <div className="relative h-56 w-full overflow-hidden">
                 <Image
                   src={
                     service.id === 'monitoring-evaluation' ? 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&auto=format&fit=crop&w=1600&h=900' :
@@ -139,70 +147,89 @@ export default function ServiceDetails() {
                   alt={`${service.name} header`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 1000px"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-                <div className="absolute left-6 -bottom-6 h-12 w-12 rounded-xl bg-white shadow-md flex items-center justify-center">
-                  <service.icon className="h-6 w-6 text-primary-600" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                <div className="absolute left-8 -bottom-8 h-16 w-16 rounded-2xl bg-white shadow-xl flex items-center justify-center border border-gray-100">
+                  <service.icon className="h-8 w-8 text-primary-600" aria-hidden="true" />
                 </div>
-              </div>
-              <div className="p-8 pt-10">
-                <h3 className="text-2xl font-bold text-gray-900">{service.name}</h3>
-              
-              <p className="text-gray-600 mb-6 text-lg">
-                {service.description}
-              </p>
-              
-              <p className="text-gray-700 mb-8">
-                {service.approach}
-              </p>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 mr-2 text-primary-600" />
-                    Key Deliverables
-                  </h4>
-                  <ul className="space-y-2">
-                    {service.deliverables.map((deliverable, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
-                        <div className="h-1.5 w-1.5 bg-primary-400 rounded-full mr-3"></div>
-                        {deliverable}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
-                    <ClockIcon className="h-5 w-5 mr-2 text-primary-600" />
-                    Project Timeline
-                  </h4>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-sm text-gray-600 mb-2">
-                      <strong>Duration:</strong> {service.timeline}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>Team Size:</strong> {service.team}
-                    </div>
+                <div className="absolute top-8 right-8">
+                  <div className="bg-white/90 backdrop-blur-sm text-primary-600 px-4 py-2 rounded-full text-sm font-semibold">
+                    Service {index + 1}
                   </div>
                 </div>
-                
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
-                    <UsersIcon className="h-5 w-5 mr-2 text-primary-600" />
-                    Our Methodology
-                  </h4>
-                  <ul className="space-y-2">
-                    {service.methodology.map((step, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
-                        <div className="h-1.5 w-1.5 bg-secondary-400 rounded-full mr-3"></div>
-                        {step}
-                      </li>
-                    ))}
-                  </ul>
+                <div className="absolute bottom-8 left-8 text-white">
+                  <h3 className="text-3xl font-bold mb-2">{service.name}</h3>
+                  <p className="text-white/90 text-lg max-w-md">{service.description}</p>
                 </div>
               </div>
+
+              {/* Content Section */}
+              <div className="p-10">
+                <div className="mb-8">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">Our Approach</h4>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    {service.approach}
+                  </p>
+                </div>
+              
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  {/* Deliverables */}
+                  <div className="bg-gradient-to-br from-primary-50 to-primary-100 p-6 rounded-2xl">
+                    <h4 className="font-bold text-gray-900 mb-6 flex items-center text-lg">
+                      <div className="h-8 w-8 bg-primary-600 rounded-lg flex items-center justify-center mr-3">
+                        <CheckCircleIcon className="h-5 w-5 text-white" />
+                      </div>
+                      Key Deliverables
+                    </h4>
+                    <ul className="space-y-3">
+                      {service.deliverables.map((deliverable, index) => (
+                        <li key={index} className="flex items-start text-sm text-gray-700">
+                          <div className="h-2 w-2 bg-primary-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          {deliverable}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* Timeline & Team */}
+                  <div className="bg-gradient-to-br from-secondary-50 to-secondary-100 p-6 rounded-2xl">
+                    <h4 className="font-bold text-gray-900 mb-6 flex items-center text-lg">
+                      <div className="h-8 w-8 bg-secondary-600 rounded-lg flex items-center justify-center mr-3">
+                        <ClockIcon className="h-5 w-5 text-white" />
+                      </div>
+                      Project Details
+                    </h4>
+                    <div className="space-y-4">
+                      <div className="bg-white/70 p-4 rounded-xl">
+                        <div className="text-sm font-semibold text-gray-900 mb-1">Duration</div>
+                        <div className="text-lg text-secondary-700 font-bold">{service.timeline}</div>
+                      </div>
+                      <div className="bg-white/70 p-4 rounded-xl">
+                        <div className="text-sm font-semibold text-gray-900 mb-1">Team Size</div>
+                        <div className="text-lg text-secondary-700 font-bold">{service.team}</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Methodology */}
+                  <div className="bg-gradient-to-br from-accent-50 to-accent-100 p-6 rounded-2xl">
+                    <h4 className="font-bold text-gray-900 mb-6 flex items-center text-lg">
+                      <div className="h-8 w-8 bg-accent-600 rounded-lg flex items-center justify-center mr-3">
+                        <UsersIcon className="h-5 w-5 text-white" />
+                      </div>
+                      Our Methodology
+                    </h4>
+                    <ul className="space-y-3">
+                      {service.methodology.map((step, index) => (
+                        <li key={index} className="flex items-start text-sm text-gray-700">
+                          <div className="h-2 w-2 bg-accent-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          {step}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
