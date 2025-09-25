@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  trailingSlash: true, // adds / at the end of URLs, avoids mismatch
+  trailingSlash: true,
   images: {
     domains: ['images.unsplash.com', 'via.placeholder.com', 'images.pexels.com', 'logo.clearbit.com'],
   },
